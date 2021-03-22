@@ -1,0 +1,13 @@
+<head>
+    <title>Hosachiguru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="Hosachiguru">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link type="image/x-icon" href="{{ "img/favicon.ico" | relURL}}" rel="shortcut icon"> {{ if .Site.IsServer }} {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
+    <link rel="stylesheet" href="{{ ($style).RelPermalink }}"> {{ else }} {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
+    <link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}"> {{ end }}
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/04efa78c0e.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
